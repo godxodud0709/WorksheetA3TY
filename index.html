@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>final</title>
+</head>
+<style>
+    body {
+	transition: 0.5s;
+	margin: 0;
+}
+
+.box-container {
+	display: grid;
+	grid-template-columns: repeat(14, 1fr);
+	gap: 1px;
+}
+
+.box  {
+	aspect-ratio: 1/1;
+	border: 1px silver
+}
+
+
+
+
+</style>
+<body>
+    <div class="box-container">
+    </div>
+
+    <script>
+        var body = document.querySelector('body');
+        var boxContainer = document.querySelector('.box-container');
+
+        var boxesHTML = '';
+        for (var i = 0; i < 420; i++) {
+            boxesHTML += '<div class="box"></div>';
+        }
+        boxContainer.innerHTML = boxesHTML;
+
+        var boxes = document.querySelectorAll('.box');
+
+        setInterval(function() {
+            boxes.forEach(function(box) {
+                var red = Math.floor(Math.random()*255);
+                var green = Math.floor(Math.random()*255);
+                var blue = Math.floor(Math.random()*255);
+
+                box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+            });
+        }, 500);
+
+        setInterval(changeColor, 1000);
+
+        function changeColor() {
+            var red = Math.floor(Math.random()*255);
+            var green = Math.floor(Math.random()*255);
+            var blue = Math.floor(Math.random()*255);
+
+            body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        }
+    </script>
+    
+</body>
+</html>
